@@ -30,7 +30,11 @@ def determine_command(user_input):
         return ['echo', "default"]
 
 def kickoff_subprocess(cmd, log_file_name):
+    #Linux
     process = subprocess.call(cmd, shell=False)
+
+    #Windows
+    #process = subprocess.call(['cmd', '/c'], shell=False)
 
     file = open(log_file_name, "a+")
     timestamp = datetime.datetime.now(datetime.timezone.utc).strftime("%m/%d/%Y, %H:%M:%S")
